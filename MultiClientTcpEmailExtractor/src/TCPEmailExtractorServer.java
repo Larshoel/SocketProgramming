@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 class EchoThread extends Thread{
     protected Socket socket;
 
+
     public EchoThread(Socket clientSocket){
         this.socket = clientSocket;
     }
@@ -40,7 +41,7 @@ class EchoThread extends Thread{
 
             while ((receivedText = in.readLine()) != null){
 
-                System.out.println(receivedText);
+                System.out.println("\n"+ clientAddr + "\n" + receivedText);
                 String outText = findEmail(receivedText);
 
                 //Send message to client
@@ -53,14 +54,13 @@ class EchoThread extends Thread{
     }
 
     //Method that returns email (if they exist on given url), or error messages
-    public static String findEmail(String inputUrl){
+    public String findEmail(String inputUrl){
         ArrayList<String> emailList = new ArrayList<String>();
         String message ="";
 
         try{
             //Get url from client
             URL url=new URL(inputUrl);
-
 
             InputStream is = new BufferedInputStream(url.openConnection().getInputStream());
             BufferedReader inn=new BufferedReader(new InputStreamReader(is));
@@ -77,18 +77,20 @@ class EchoThread extends Thread{
             if(!emailList.isEmpty()){
 
                 //Format email list
-                message =" Code 0: \n";
+                message +=" Code 0: \n";
                 for(String i : emailList){
                     message += i + "\n";
 
                 }
+
             }
             else{
-                message ="Code 1: !!!No email address found on the page!!!’";
+                message +="Code 1: !!!No email address found on the page!!!’";
             }
         } catch (IOException e){
-            message =" Code 2: !!!Server couldn’t find the web page!!!";
+            message +=" Code 2: !!!Server couldn’t find the web page!!!";
         }
+
 
         System.out.println(message);
 

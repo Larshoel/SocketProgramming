@@ -4,7 +4,7 @@ import java.net.*;
 public class TCPEmailExtractorClient {
 
     public static void main(String[] args) throws IOException {
-        String hostname = "127.0.0.1"; //Server ip
+        String hostname = "192.168.68.102"; //Server ip
         int portNumber = 5555;  //Default port
 
         //Create TCP socet for hostname and port

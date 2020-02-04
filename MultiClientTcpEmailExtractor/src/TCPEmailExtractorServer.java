@@ -23,7 +23,7 @@ class EchoThread extends Thread{
         int clientPort = 0;
 
         try{
-            //Create serversocket with given portnumber
+
             out = new PrintWriter(socket.getOutputStream(), true);
 
             //Stream reader from the connection socket
@@ -35,7 +35,7 @@ class EchoThread extends Thread{
             //Get client port
             clientPort = socket.getPort();
 
-            System.out.println(clientAddr + " connected to server");
+            System.out.println("\n" + clientAddr + " connected to server");
 
             String receivedText;
 
@@ -80,7 +80,6 @@ class EchoThread extends Thread{
                 message +=" Code 0: \n";
                 for(String i : emailList){
                     message += i + "\n";
-
                 }
 
             }

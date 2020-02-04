@@ -64,7 +64,6 @@ public class UDPEmailExtractorServer {
                 message +=" Code 0: \n";
                 for(String i : emailList){
                     message += i + "\n";
-
                 }
 
             }

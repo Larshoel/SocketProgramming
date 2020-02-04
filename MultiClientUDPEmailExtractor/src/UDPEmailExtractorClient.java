@@ -12,7 +12,7 @@ public class UDPEmailExtractorClient{
         DatagramSocket datagramSocket;
         DatagramPacket inPacket,outPacket;
         byte[] buffer;
-        String hostName="192.168.68.102";
+        String hostName="10.253.20.41";
 
         try{
              datagramSocket=new DatagramSocket();
@@ -24,13 +24,25 @@ public class UDPEmailExtractorClient{
 
                 host = InetAddress.getByName(hostName);
 
+
                 outPacket=new DatagramPacket(input.getBytes(),input.length(),host,PORT);
+
                 datagramSocket.send(outPacket);
 
                 buffer=new byte[1024];
                 inPacket=new DatagramPacket(buffer,buffer.length);
-                datagramSocket.receive(inPacket);
-                response=new String(inPacket.getData(),0,inPacket.getLength());
+
+                 datagramSocket.setSoTimeout(2000);
+
+                try{
+                    datagramSocket.receive(inPacket);
+                    response=new String(inPacket.getData(),0,inPacket.getLength());
+
+                }catch(IOException e){
+                    System.out.println("No response from server");
+                    e.printStackTrace();
+
+                }
 
                 System.out.println(response + "\n");
 

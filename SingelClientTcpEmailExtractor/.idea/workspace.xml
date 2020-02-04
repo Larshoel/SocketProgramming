@@ -7,6 +7,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1X8LAjlPHJLSAlgiDlGxFdEmaiR" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
@@ -18,6 +24,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -49,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580422633641</updated>
       <workItem from="1580422637985" duration="45000" />
+      <workItem from="1580815410892" duration="581000" />
     </task>
     <servers />
   </component>

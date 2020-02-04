@@ -18,7 +18,7 @@ public class UDPEmailExtractorClient{
              datagramSocket=new DatagramSocket();
              Scanner userEntry=new Scanner(System.in);
              String input="",response="";
-             System.out.print("URL: ");
+             System.out.print("Welcome to the UDP Email extractor, write the url to extract the emails from.\nURL: ");
 
              while((input = userEntry.next()) != null && !input.isEmpty()){
 

@@ -24,6 +24,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -57,6 +64,7 @@
       <workItem from="1580422396107" duration="307000" />
       <workItem from="1580422724052" duration="643000" />
       <workItem from="1580424360419" duration="57000" />
+      <workItem from="1580809225514" duration="2167000" />
     </task>
     <servers />
   </component>
@@ -68,6 +76,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="408" y="196" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1580422691434" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1580810642994">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1440.877@0.23.1440.877" timestamp="1580810642994" />
     <state x="97" y="84" key="new project wizard" timestamp="1580422765608">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -41,7 +41,7 @@ class EchoThread extends Thread{
 
             while ((receivedText = in.readLine()) != null){
 
-                System.out.println("\n"+ clientAddr + "\n" + receivedText);
+                System.out.println("\n"+ clientAddr + " : " + receivedText);
                 String outText = findEmail(receivedText);
 
                 //Send message to client

@@ -1,20 +1,32 @@
 import java.io.*;
 import java.net.*;
 
+import static java.lang.System.exit;
+
 public class TCPEmailExtractorClient {
 
     public static void main(String[] args) throws IOException {
-        String hostname = "192.168.68.102"; //Server ip
+        String hostname = "10.253.20.41"; //Server ip
         int portNumber = 5555;  //Default port
+        Socket clinetSocket = new Socket();
+        PrintWriter out = null;
+        BufferedReader in = null;
+        try{
 
-        //Create TCP socet for hostname and port
-        Socket clinetSocket = new Socket(hostname, portNumber);
+            //Create TCP socket for hostname and port
+            //clinetSocket = new Socket(hostname, portNumber);
+            clinetSocket.connect(new InetSocketAddress(hostname, portNumber), 2000);
 
-        //Stream reader to socket
-        PrintWriter out = new PrintWriter(clinetSocket.getOutputStream(), true);
+            //Stream reader to socket
+            out = new PrintWriter(clinetSocket.getOutputStream(), true);
 
-        //Stream reader from socket
-        BufferedReader in = new BufferedReader(new InputStreamReader(clinetSocket.getInputStream()));
+            //Stream reader from socket
+            in = new BufferedReader(new InputStreamReader(clinetSocket.getInputStream()));
+
+        }catch (IOException e){
+            System.out.println(e);
+            exit(0);
+        }
 
         //Reads keaybord inputs
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));

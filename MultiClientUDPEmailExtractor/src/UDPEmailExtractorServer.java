@@ -12,7 +12,7 @@ public class UDPEmailExtractorServer {
     private static void run() {
         try {
             String messageIn,messageOut;
-            InetAddress clientAddress=null;
+            InetAddress clientAddress;
             int clientPort;
             byte[] buffer;
             DatagramPacket inPacket,outPacket;
@@ -33,8 +33,7 @@ public class UDPEmailExtractorServer {
                 datagramSocket.send(outPacket);
             }
 
-        }
-        catch(IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +49,7 @@ public class UDPEmailExtractorServer {
             InputStream is = new BufferedInputStream(url.openConnection().getInputStream());
             BufferedReader inn=new BufferedReader(new InputStreamReader(is));
 
-            //Loop throu alle the text on the given website, add every line that contains @ to arraylist
+            //Loop through all the text on the given website, add every line that contains @ to arraylist
             String tmp="";
             while((tmp=inn.readLine())!=null){
                 if(tmp.contains("@")){
@@ -82,13 +81,11 @@ public class UDPEmailExtractorServer {
         return message;
     }
 
-    public static void main(String[] args)
-    {
-        System.out.println("Connected");
+    public static void main(String[] args) {
         try {
             datagramSocket=new DatagramSocket(portNumber);
-        }
-        catch(SocketException sockEx) {
+            System.out.println("Connected");
+        } catch(SocketException sockEx) {
             System.out.println("unable to open ");
             System.exit(1);
         }

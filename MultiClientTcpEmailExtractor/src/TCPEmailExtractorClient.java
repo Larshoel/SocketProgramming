@@ -8,20 +8,20 @@ public class TCPEmailExtractorClient {
     public static void main(String[] args) throws IOException {
         String hostname = "10.253.6.148"; //Server ip
         int portNumber = 5555;  //Default port
-        Socket clinetSocket = new Socket();
+        Socket clientSocket = new Socket();
         PrintWriter out = null;
         BufferedReader in = null;
         try{
 
             //Create TCP socket for hostname and port
-            //clinetSocket = new Socket(hostname, portNumber);
-            clinetSocket.connect(new InetSocketAddress(hostname, portNumber), 2000);
+            //clientSocket = new Socket(hostname, portNumber);
+            clientSocket.connect(new InetSocketAddress(hostname, portNumber), 2000);
 
             //Stream reader to socket
-            out = new PrintWriter(clinetSocket.getOutputStream(), true);
+            out = new PrintWriter(clientSocket.getOutputStream(), true);
 
             //Stream reader from socket
-            in = new BufferedReader(new InputStreamReader(clinetSocket.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
         }catch (IOException e){
             System.out.println(e);

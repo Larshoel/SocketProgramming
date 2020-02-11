@@ -20,7 +20,6 @@ class EchoThread extends Thread{
         PrintWriter out = null;
         BufferedReader in = null;
         InetAddress clientAddr = null;
-        int clientPort = 0;
 
         try{
 
@@ -31,9 +30,6 @@ class EchoThread extends Thread{
 
             //Get clinet IP adress
             clientAddr = socket.getInetAddress();
-
-            //Get client port
-            clientPort = socket.getPort();
 
             System.out.println("\n" + clientAddr + " connected to server");
 
@@ -69,9 +65,9 @@ class EchoThread extends Thread{
             //Loop throu alle the text on the given website, add every line that contains @ to arraylist
             String tmp="";
             while((tmp=inn.readLine())!=null){
-                String[] arrOfString = tmp.split("<|>|/");
-                for(int j = 0; j < arrOfString.length; j++){
-                    String text = arrOfString[j];
+                    String[] arrOfString = tmp.split("<|>|/");
+                    for(int j = 0; j < arrOfString.length; j++){
+                        String text = arrOfString[j];
                     if(text.contains("@")){
                         String [] arrOfText = text.split(":|;|,| ");
                         for(int i = 0; i < arrOfText.length; i++){

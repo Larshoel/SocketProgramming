@@ -6,7 +6,7 @@ import static java.lang.System.exit;
 public class TCPEmailExtractorClient {
 
     public static void main(String[] args) throws IOException {
-        String hostname = "10.253.20.41"; //Server ip
+        String hostname = "10.253.6.148"; //Server ip
         int portNumber = 5555;  //Default port
         Socket clinetSocket = new Socket();
         PrintWriter out = null;

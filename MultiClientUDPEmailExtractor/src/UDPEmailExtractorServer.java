@@ -2,6 +2,7 @@
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 
 public class UDPEmailExtractorServer {
@@ -29,7 +30,7 @@ public class UDPEmailExtractorServer {
                 System.out.print(clientAddress + " : " + messageIn +"\n");
 
                 messageOut=findEmail(messageIn);
-                outPacket=new DatagramPacket(messageOut.getBytes(),messageOut.length(),clientAddress,clientPort);
+                outPacket=new DatagramPacket(messageOut.getBytes(),messageOut.length(),clientAddress,clientPort); //messageOut.getBytes()
                 datagramSocket.send(outPacket);
             }
 
@@ -52,8 +53,17 @@ public class UDPEmailExtractorServer {
             //Loop through all the text on the given website, add every line that contains @ to arraylist
             String tmp="";
             while((tmp=inn.readLine())!=null){
-                if(tmp.contains("@")){
-                    emailList.add(tmp);
+                String[] arrOfString = tmp.split("<|>|/");
+                for(int j = 0; j < arrOfString.length; j++){
+                    String text = arrOfString[j];
+                    if(text.contains("@")){
+                        String [] arrOfText = text.split(":|;|,| ");
+                        for(int i = 0; i < arrOfText.length; i++){
+                            if(isValid(arrOfText[i])){
+                                emailList.add(arrOfText[i]);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -78,6 +88,19 @@ public class UDPEmailExtractorServer {
         System.out.println(message + "\n");
 
         return message;
+    }
+
+    //Check if string containing @ is a valid email
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 
     public static void main(String[] args) {

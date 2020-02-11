@@ -12,7 +12,7 @@ public class UDPEmailExtractorClient{
         DatagramSocket datagramSocket;
         DatagramPacket inPacket,outPacket;
         byte[] buffer;
-        String hostName="10.253.20.41";
+        String hostName="10.253.6.148";
 
         try{
              datagramSocket=new DatagramSocket();
@@ -32,7 +32,7 @@ public class UDPEmailExtractorClient{
                 buffer=new byte[1024];
                 inPacket=new DatagramPacket(buffer,buffer.length);
 
-                 datagramSocket.setSoTimeout(2000);
+                 datagramSocket.setSoTimeout(3000);
 
                 try{
                     datagramSocket.receive(inPacket);

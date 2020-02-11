@@ -65,11 +65,21 @@ class EchoThread extends Thread{
             InputStream is = new BufferedInputStream(url.openConnection().getInputStream());
             BufferedReader inn=new BufferedReader(new InputStreamReader(is));
 
+
             //Loop throu alle the text on the given website, add every line that contains @ to arraylist
             String tmp="";
             while((tmp=inn.readLine())!=null){
-                if(tmp.contains("@")){
-                    emailList.add(tmp);
+                String[] arrOfString = tmp.split("<|>|/");
+                for(int j = 0; j < arrOfString.length; j++){
+                    String text = arrOfString[j];
+                    if(text.contains("@")){
+                        String [] arrOfText = text.split(":|;|,| ");
+                        for(int i = 0; i < arrOfText.length; i++){
+                            if(isValid(arrOfText[i])){
+                                emailList.add(arrOfText[i]);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -94,6 +104,19 @@ class EchoThread extends Thread{
         System.out.println(message);
 
         return message;
+    }
+
+    //Check if string containing @ is a valid email
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 }
 
